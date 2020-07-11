@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>造数据防锅指北 | ccw630::Blog</title><meta name="description" content="震惊，某男子用 C++ 出数据，竟然惨遭…"><meta name="keywords" content="linux,python"><meta name="author" content="ccw630"><meta name="copyright" content="ccw630"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://w630.cc/how-to-generate-test-datas/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="L4_J7ls_6K7fiWWJDip4HZyaZfac1Rq4UG1J6299KCk"/><meta property="og:type" content="article"><meta property="og:title" content="造数据防锅指北"><meta property="og:url" content="https://w630.cc/how-to-generate-test-datas/"><meta property="og:site_name" content="ccw630::Blog"><meta property="og:description" content="震惊，某男子用 C++ 出数据，竟然惨遭…"><meta property="og:image" content="https://5.imimg.com/data5/VA/KX/MY-547964/copper-pot-with-lid-500x500.png"><meta property="article:published_time" content="2019-08-09T16:00:00.000Z"><meta property="article:modified_time" content="2019-08-09T16:00:00.000Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'true'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="prev" title="ICPC Resolver 乱搞手册" href="https://w630.cc/Resolve-a-Resolver/"><link rel="next" title="最近一季度" href="https://w630.cc/2019-4-6/"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-172403352-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">9</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#早期的实践-错误示范"><span class="toc-number">1.</span> <span class="toc-text">早期的实践 - 错误示范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较标准的姿势-大概"><span class="toc-number">2.</span> <span class="toc-text">比较标准的姿势(大概)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后来的偷懒方法"><span class="toc-number">3.</span> <span class="toc-text">后来的偷懒方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录1-如何把custoj上的题搬运到牛客"><span class="toc-number">4.</span> <span class="toc-text">附录1 如何把custoj上的题搬运到牛客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附录2"><span class="toc-number">5.</span> <span class="toc-text">附录2</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://5.imimg.com/data5/VA/KX/MY-547964/copper-pot-with-lid-500x500.png)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ccw630::Blog</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">造数据防锅指北</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2019-08-10 00:00:00"><i class="far fa-calendar-alt fa-fw"></i> Created 2019-08-10</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2019-08-10 00:00:00"><i class="fas fa-history fa-fw"></i> Updated 2019-08-10</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/acm/">acm</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><del>什么？你还在用 C++ 出数据</del></p>
+<p>在<del>ACM</del> <del>JB</del> *CPC 系列的比赛中，出题是非常关键的一环。作为出题人，题出得不好，就会被喷(?)。出题除了需要脑洞，还需要严谨的数据。如果数据错了/水了，后果就是出题人被选手吊起来打。</p>
+<p>本人从大二上学期的新生选拔赛开始给学校的各类校赛(?)出题，也在现场/赛后踩了一些坑。因此总结一些出题(主要是造数据)的姿势，以供参考。</p>
+<h2 id="早期的实践-错误示范"><a href="#早期的实践-错误示范" class="headerlink" title="早期的实践 - 错误示范"></a>早期的实践 - 错误示范</h2><p>一开始当然是 C++ 选手的沙雕操作: <code>rand</code>, <code>freopen</code>，然后再手动加几个很小很边界的人肉数据点 hack 一些能想到的沙雕写法。</p>
+<p>这么搞很显然有弊端。首先是没法保证人肉数据点的正确性，就算是正确的，可能还是不够强。其次是麻烦，跑一把只能出一组数据，然后还要改<code>freopen</code>里的文件名。<del>于是导致了数据只有一组</del></p>
+<p>此外，当时还是个 Windows 用户。众所周知，<code>rand</code>生成的随机数最大值<code>RAND_MAX</code>是 library-dependent 的，在 Windows(MinGW) 下是 32767，因此跑不出比较大的随机数。</p>
+<p>那个时候虽然知道这个 feature，但是解决方法比较沙雕: <code>rand()*rand()</code>。这显然变成了一个分布不均匀的随机，例如 19260817 出现的概率为 0。其实更好的解决方法是<code>(rand()&lt;&lt;16)+rand()</code>，不过总的来说使用 C++ 出数据是不推荐的做法。</p>
+<p>当然，有一个场景必须要这么做——省赛(及其他现场赛 Windows 环境或没有 Python 的情况下)需要对拍的时候。这个时候，建议使用<code>mt19937</code>，还是比较方便的，起码不用考虑<code>rand</code>大小的问题。这也说明，出数据不一定是为了出题，可能还是为了过题。</p>
+<p>题外话，从主办方的角度来说，现场赛使用 Windows 环境可能是为了萌新友好，不过个人还是希望明年我们办省赛的时候给选手们提供 Ubuntu 的标准现场赛环境(来自 Vim &amp; Python 重度依赖患者的 flag?)</p>
+<h2 id="比较标准的姿势-大概"><a href="#比较标准的姿势-大概" class="headerlink" title="比较标准的姿势(大概)"></a>比较标准的姿势(大概)</h2><p>发现 C++ 不好用的时候，接下来基本上就会想到 Python。随机数据<code>import random</code>一把梭，并且还有方便的列表操作 api。接下来以今年校内 C4 选拔赛原题<a href="http://oj.cust.edu.cn/problem/141" target="_blank" rel="noopener external nofollow noreferrer">tr</a>为例，说明一个大致的出题流程。</p>
+<p>首先是准备数据生成器，我这边一般命名为<code>gen.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">s=<span class="string">"qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890/. "</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(random.randint(<span class="number">1</span>,<span class="number">100</span>)):</span><br><span class="line">  print(<span class="string">''</span>.join([random.choice(s)<span class="keyword">for</span> j <span class="keyword">in</span> range(random.randint(<span class="number">1</span>,<span class="number">100</span>))]))</span><br></pre></td></tr></table></figure>
+<p>然后是用来读输入跑输出的程序，一般是标程，不过这题其实出得挺偷懒的，标程<code>work.sh</code>如下。<del>显然这题的标题就是这么来的</del></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">tr A-Z a-z</span><br></pre></td></tr></table></figure>
+<p>之后拿脚本<code>gen.sh</code>批量产出输入输出数据，比如搞个五组。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> ((i=1;i&lt;=5;i++));</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">python3 gen.py &gt; <span class="variable">$i</span>.<span class="keyword">in</span></span><br><span class="line">./work.sh &lt;<span class="variable">$i</span>.<span class="keyword">in</span> &gt;<span class="variable">$i</span>.out</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>至此，我们当前目录下会有三个文件: <code>gen.py</code>, <code>work.sh</code>, <code>gen.sh</code>。当然这个<code>work.sh</code>纯属偷懒产物，一般的话还是好好拿 C++ 什么的写标程，然后编译得到可执行文件，比如<code>g++ work.cpp -o work</code>，然后上述<code>gen.sh</code>内的<code>work.sh</code>也相应改成可执行文件<code>work</code>。<strong>注意，这里的标程和数据生成器都不需要文件输入输出，直接走标准输入输出就好了。</strong></p>
+<p>基本的三件套到位，就可以在终端跑了。这里首先要加一波执行的权限。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chmod +x work.sh  <span class="comment"># 偷懒产物，可忽略</span></span><br><span class="line">$ chmod +x gen.sh</span><br></pre></td></tr></table></figure>
+<p>然后执行脚本，大功告成。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./gen.sh</span><br></pre></td></tr></table></figure>
+<p>对于像校内 C4 选拔赛这样的需要 OI 赛制的，也可以微调一下<code>gen.py</code>，比如这题把空格去掉再跑一把形成另一批输入数据，酌情放点部分分给选手。此处就不再赘述了。</p>
+<h2 id="后来的偷懒方法"><a href="#后来的偷懒方法" class="headerlink" title="后来的偷懒方法"></a>后来的偷懒方法</h2><p>之后的好几场比赛，都是组的比较急，有的时候是比赛还有一周开始，但是我们还是一个题都没出的状态。所以就有了一种又快又不容易出锅的偷懒方法——利用好 Special Judge</p>
+<p>目前，我校的 oj，如果题目是 spj 的，数据只需要提供<code>.in</code>文件，之后额外提供 spj 代码即可。显然，输出数据有没有出锅，肉眼还是比较难看出来的，但是 spj 代码就比较容易 review。出数据的流程和之前几乎没什么区别，去掉<code>work</code>的部分就可以了。这就意味着，标程有的时候就不需要写了(?)，例如<a href="http://oj.cust.edu.cn/problem/100" target="_blank" rel="noopener external nofollow noreferrer">玄学</a>、<a href="http://oj.cust.edu.cn/problem/125" target="_blank" rel="noopener external nofollow noreferrer">BA</a>、<a href="http://oj.cust.edu.cn/problem/161" target="_blank" rel="noopener external nofollow noreferrer">Arithmetic Sequence</a>，就都是这么来的。</p>
+<p>出题人自验的过程，也就是看一下 spj 代码有没有肉眼可见的 bug，不需要担心输出数据和输入数据是不是对不上了。<del>之后丢给人验题，能过就行了</del></p>
+<p>至于什么是肉眼可见的 bug，只能靠经验自由发挥了。以下举两个例子</p>
+<p>之前现场出过的一个锅是，题目给 n、m 和长度为 m 的一个数组 a，spj 大概要判一个长度为 x(选手给出)的数组 b 是否满足$∑b_{a_i}$可以被 n 整除。当时有选手提交的代码就是只输出了一个 0，结果 spj 返回 Accepted。原因是 spj 虽然判了 x 是否比 m 大，但是没判 x 是否$\le 0$。至于现场修锅，比较曲折，大概是线上改库把人家的 Accepted 退回，题数<code>--</code>，手算一下去掉这题的罚时，然后再去通知人家。</p>
+<p>还有一个锅，是在比赛结束后发现的，因为没有选手成功触发。这个问题首先其实和出题流程没有什么太大关系，是题目需要输出小数，根据精度判断是否正确。然后发现如果输出是<code>NaN</code>，spj 返回 Accepted。这种问题其实就比较状况外了，然后查之前的题有没有相同的问题，也是有些题有有些题没有。不过还是建议以后这种情况先用<code>std::isnan</code>判一下</p>
+<p>总之，这种偷懒的方法还需要比较完善的 review 流程<del>需要用ctf选手的目光去审计spj代码</del>，可以在熟悉的情况下适当使用，正常情况下还是用上一部分所述的方法造数据。</p>
+<h2 id="附录1-如何把custoj上的题搬运到牛客"><a href="#附录1-如何把custoj上的题搬运到牛客" class="headerlink" title="附录1 如何把custoj上的题搬运到牛客"></a>附录1 如何把custoj上的题搬运到牛客</h2><p>貌似上次留了这个flag，补档。挂题要用的牛客号在我这，有需要可以联系我，或者直接找牛客重置。</p>
+<p>搬运题面的时候，可能会涉及到 latex 公式。因为我们出题一般都是 markdown 格式内嵌 latex，所以就直接点插入公式，粘贴全部的 markdown，再微调格式即可。</p>
+<p>数据分为两种。没有 spj 的，直接搬过去就行了。有 spj 的，首先要新建<strong>对应数量的<code>.out</code>文件</strong>，内容随意，spj 不用到就行。之后修改 spj 代码，按牛客的要求将文件名写死。一般的具体做法是把 spj 代码中 main 里以下代码块(一般从18行起)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(argc != <span class="number">3</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Usage: spj x.in x.out\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> ERROR;</span><br><span class="line">&#125;</span><br><span class="line">input = fopen(args[<span class="number">1</span>], <span class="string">"r"</span>);</span><br><span class="line">user_output = fopen(args[<span class="number">2</span>], <span class="string">"r"</span>);</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">input = fopen(<span class="string">"input"</span>, <span class="string">"r"</span>);</span><br><span class="line">user_output = fopen(<span class="string">"user_output"</span>, <span class="string">"r"</span>);</span><br></pre></td></tr></table></figure>
+<p>这样就能很方便地把 custoj 里的题目搬运到牛客上了。办个重现赛什么的还是很方便的</p>
+<h2 id="附录2"><a href="#附录2" class="headerlink" title="附录2"></a>附录2</h2><p><del>贵校什么时候考虑接入polygon啊</del></p>
+<p><del>贵校什么时候校赛考虑用DomJudge啊</del></p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">ccw630</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://w630.cc/how-to-generate-test-datas/">https://w630.cc/how-to-generate-test-datas/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener external nofollow noreferrer">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/python/">python</a></div><div class="post_share"><div class="social-share" data-image="/images/python-lambda.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Resolve-a-Resolver/"><img class="prev-cover" data-src="/images/resolver.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ICPC Resolver 乱搞手册</div></div></a></div><div class="next-post pull-right"><a href="/2019-4-6/"><img class="next-cover" data-src="/images/lobster.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">最近一季度</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/cpc-vimrc/" title="*cpc现场赛vim配置"><img class="relatedPosts_cover" data-src="/images/vim.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-26</div><div class="relatedPosts_title">*cpc现场赛vim配置</div></div></a></div><div class="relatedPosts_item"><a href="/python-lambda-late-binding/" title="Python Lambda 的坑 - Late Binding"><img class="relatedPosts_cover" data-src="/images/python-lambda.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-30</div><div class="relatedPosts_title">Python Lambda 的坑 - Late Binding</div></div></a></div></div></div></article></main><footer id="footer" style="background-image: url(https://5.imimg.com/data5/VA/KX/MY-547964/copper-pot-with-lid-500x500.png)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By <i class="fa fa-dove"></i><span> ccw630</span></div><div class="framework-info"><span>Hosted by </span><a href="https://pages.github.com/" target="_blank" rel="noopener external nofollow noreferrer"><span>Github Pages</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button id="darkmode" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener external nofollow noreferrer" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><script>var isChatBtn = true
+
+if (isChatBtn) {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+    activationElement: '#chat_btn'
+  };
+} else {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+  };
+
+  if (false) {
+    var gitterBtn = document.getElementsByClassName('gitter-open-chat-button')
+
+    function chatBtnHide () {
+      gitterBtn[0].style.display= 'none'
+    }
+
+    function chatBtnShow () {
+      gitterBtn[0].style.display= 'block'
+    }
+  }
+}
+</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></body></html>
