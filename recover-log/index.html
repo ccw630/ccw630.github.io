@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>灾后重建 | ccw630::Blog</title><meta name="description" content="再可靠的单机也是不可靠的。无论是在云上还是在多台设备中，重要的数据一定要冗余存放。当然，遇事不要慌~"><meta name="keywords" content="纪念,运维,乱搞"><meta name="author" content="ccw630"><meta name="copyright" content="ccw630"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://w630.cc/recover-log/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="L4_J7ls_6K7fiWWJDip4HZyaZfac1Rq4UG1J6299KCk"/><meta property="og:type" content="article"><meta property="og:title" content="灾后重建"><meta property="og:url" content="https://w630.cc/recover-log/"><meta property="og:site_name" content="ccw630::Blog"><meta property="og:description" content="再可靠的单机也是不可靠的。无论是在云上还是在多台设备中，重要的数据一定要冗余存放。当然，遇事不要慌~"><meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><meta property="article:published_time" content="2020-07-13T15:04:21.000Z"><meta property="article:modified_time" content="2020-07-13T17:41:24.736Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'true'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="next" title="Python Lambda 的坑 - Late Binding" href="https://w630.cc/python-lambda-late-binding/"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-172403352-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">10</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#损坏与修复"><span class="toc-number">1.</span> <span class="toc-text">损坏与修复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据恢复"><span class="toc-number">2.</span> <span class="toc-text">数据恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过渡的设备"><span class="toc-number">3.</span> <span class="toc-text">过渡的设备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#备份方案"><span class="toc-number">4.</span> <span class="toc-text">备份方案</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ccw630::Blog</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">灾后重建</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2020-07-13 23:04:21"><i class="far fa-calendar-alt fa-fw"></i> Created 2020-07-13</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2020-07-14 01:41:24"><i class="fas fa-history fa-fw"></i> Updated 2020-07-14</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/misc/">misc</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>2020 年 4 月 2 日，我的个人电脑(MacBook Pro 13-inch, 2018)遭到了不可逆转的毁灭性打击，损失严重，特此记录。</p>
+<p>由于博客也是灾后重建的一部分，之后又花了一些时间完成毕业设计，因此晚了三个月才写下这篇文章。</p>
+<h2 id="损坏与修复"><a href="#损坏与修复" class="headerlink" title="损坏与修复"></a>损坏与修复</h2><p>首先来捋一下时间线。</p>
+<ul>
+<li>目测 4 月 1 日凌晨触发了一次系统更新，因此当我2日打开电脑时指纹登录被停用，需要我输入密码。</li>
+<li>2 日晚上一边使用网易云音乐，一边使用 Sidecar 功能连接 iPad 做第二屏幕，之后突然就卡住了。于是强制关机。<ul>
+<li>18 年的 mbp 有个通病，总会突然卡住然后重启，和 Apple T2 安全芯片有关。</li>
+<li>我遇到过几次上述问题，尤其是刚拿到手那段时间。但是每一次都有网易云音乐正在播放，可能有毒…</li>
+<li>这次尤为严重，卡住后不能重启了</li>
+<li>系统版本应该是 macOS Catalina 10.15.4</li>
+</ul>
+</li>
+<li>关机后尝试马上开机，没有任何反应。抱着一丝希望等它恢复到可以启动的状态，于是去洗澡了。然而等到机身都冰凉了，还是没有任何响应。</li>
+<li>通过搜索引擎，尝试了几种常见的 Mac 开机无响应的解决办法，无果。遂访问 Genius Bar，预约了第二天的电话支持和周末的现场支持。</li>
+<li>3 日电话支持，大部分依然是前一天查到的操作，似乎也尝试了一个没看到过的办法，但依旧无果。感觉时间拖得越长，对这种能自己操作的办法越不抱希望，预感到拆机是不可避免的了。</li>
+<li>4 日直奔附近的 Apple Store，跟店员说了大概的情况(包括常用方法已经尝试无果)，几分钟就交机了，结论是直接换主板，主板含存储盘，数据不保证能挽救。</li>
+<li>11 日中午 Apple Store 来电通知数据不可恢复，傍晚通知可以取机，于是第一时间前往，取回更换主板后的「新机」。</li>
+</ul>
+<p>从损坏到修复，一共过去 10 天。维修效率还是比较符合预期的。但是损坏这件事情本身就完全是预期外的。进一步询问维修人员，也只是表示主板出这种问题几率很小(个人推断还是 T2 芯片直接把主板整个锁死了)</p>
+<p>于是偶尔考虑了下离开生态，毕竟 Mac 也没有很可靠嘛。然而并过不去<code>⌘</code>键和<code>⌃</code>键合并的坎。已经习惯了<code>ctrl:nocaps</code>的键位，有个<code>⌘Command</code>键对我来说是十分重要了(<code>⌃Control</code>键就应该干 control 的事情嘛)。不过不得不说，除了这个键盘问题，其他方面 M$ Windows 做得已经日趋完善了。</p>
+<p><img src= "/img/loading.gif" data-src="/images/geniusbar.jpg" alt="Genius Bar 工作授权"></p>
+<h2 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h2><p>在损坏之前，我并没有很重视数据的备份。所以是真的很痛。</p>
+<p>幸好，还是有一部分数据可以立马找回来的。主要分别是</p>
+<ul>
+<li>GitHub 上的代码，例如 CustOJ、CustIDE 等</li>
+<li>阿里云上部署的代码，例如 CustReg、高德地铁路线爬虫脚本</li>
+<li>百度网盘，保存了两个收钱做的外包项目、JoblabX的参赛代码等</li>
+<li>公司的 Mac 和开发机里，终端配置和<code>.zshrc</code>、<code>.vimrc</code></li>
+</ul>
+<p>丢失的主要有</p>
+<ul>
+<li>毕设开题报告，虽然上交给老师了，但刚好老师的电脑被他老婆格式化了…</li>
+<li>为了毕设找的一些参考文献，有些公网不好找的还是只能麻烦女票再下一份</li>
+<li><strong>本 Blog 的部署源码</strong>，毕竟 GitHub Page 只托管静态产物</li>
+<li>ACM 模板，源码和产物都丢失了（虽然也退役了</li>
+<li>个人简历的 tex 源码，现在只有 pdf 留在 Google Drive 上了</li>
+<li>一些出题用到的代码和数据</li>
+<li>一些 pyspark 脚本</li>
+<li>各种杂物，主要集中在以前的<code>~/</code>里</li>
+</ul>
+<p>当然，还有很多软件要装。主要麻烦的可能是一些 Adobe，以及 Wolfram Mathematica。不过最近 Wolfram Cloud 免费大放送，暂时先用着。</p>
+<p>由于 4 月刚好是毕设中期，所以抓紧先重写了开题报告(幸好当时还没有真正开始写毕设，否则可能还没 git 过就 gg)</p>
+<p>至于博客，则是到了最近才开始着手重建。这次干脆就从老的 Next Theme 换成了新的 Butterfly，多了许多功能和特效，然而也吃图。</p>
+<h2 id="过渡的设备"><a href="#过渡的设备" class="headerlink" title="过渡的设备"></a>过渡的设备</h2><p>事实上我有两台💻，但是公司发的 15-inch 实在是太重了，并不想背来背去，而且新买的 iPad 当然要体验一下。于是 iPad 就当了几天家用主力机。</p>
+<p>我购入的是 iPad Pro 2020 11” Wifi 版，几乎是国内最早一批拿到手的。当然当时还没有发售「悬浮」的 Magic Keyboard，临时用一把 Logitech k380 顶着，没有触控板也没有鼠标。</p>
+<p>买它的时候，我确实被「你的下一台电脑，何必是电脑。」的广告语吸引住了。没想到一语成谶，直接把 mbp 搞挂来使得 iPad 替代「电脑」的位置…(具体的使用体验，可能将来会开一篇文章分享)</p>
+<p>不过，在那几天，iPad 确实表现还是比较出色的。至少，我使用它和自己写的 CustIDE 通过了 Google Code Jam 的初赛，还通过带有 ssh 功能的 app 在云主机上做了一些小修改和运维。不过，很大一部分时间，是用浏览器来调研网盘了。</p>
+<h2 id="备份方案"><a href="#备份方案" class="headerlink" title="备份方案"></a>备份方案</h2><p>数据备份确实很重要的，可能只有翻过车才能意识到。</p>
+<p>这次拿到全新系统后，首先是确认了 iCloud 处于启用状态。iCloud 在生态内还是很好用的，桌面、文稿等几个位置都可以自动同步到云上，也可以跨设备同步小文件什么的。当然，网盘的使用也要考虑到非的设备。</p>
+<p>各方面考虑下来(具体怎么考虑的已经忘了，有空想起来再补吧)，最后选择了 M$ 家的 OneDrive 做数据备份和同步。因为买的是 365，所以还享受到了正版的 Office 三件套，在毕设的论文撰写和答辩中还是起到了很大作用的，感觉不亏。之后文档备份，如果使用 Word 之类的，可以直接建到 OneDrive 里，所有设备都可以同步。</p>
+<p>OneDrive 在 Mac 是可以映射成一个文件夹来使用的(Windows 貌似是挂盘，本质上同理)。我把这个文件夹直接放在<code>~/</code>下了。它支持软连接出来，映射到本机的其他路径下，但反过来不行。于是像博客源码这一类的，我会先在 OneDrive 建立好路径，然后<code>ln -s</code>到<code>~/blog</code>，这样在本机操作<code>blog</code>目录就直接同步到 OneDrive 了。</p>
+<p>另一方面，如上所述，我习惯放很多杂物在<code>~/</code>里。这些东西我也是需要备份的，但是显然做不到实时。于是基于<code>rsync</code>写了个脚本，来支持<code>~/</code>下单文件的准实时同步，用<code>crontab</code>实现每 10 分钟同步一次。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sync_home.sh</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">src_dir=<span class="string">"<span class="variable">$HOME</span>/"</span></span><br><span class="line">dest_dir=<span class="string">"<span class="variable">$HOME</span>/OneDrive/ccw/"</span></span><br><span class="line"></span><br><span class="line">rsync -a --delete --exclude=<span class="string">'*/'</span> <span class="variable">$src_dir</span> <span class="variable">$dest_dir</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ crontab -e</span><br><span class="line">*/10 * * * * ~/sync_home.sh</span><br></pre></td></tr></table></figure>
+<p>能解决<code>~/</code>里的杂物，其实就解决了很大一部分问题。其他成库的代码，都会被传到 GitHub(微软接手后放开了私有仓库的限制，解决了很多问题)。</p>
+<p>总结，我可能又要成为软吹了【</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">ccw630</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://w630.cc/recover-log/">https://w630.cc/recover-log/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener external nofollow noreferrer">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BA%AA%E5%BF%B5/">纪念</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/%E4%B9%B1%E6%90%9E/">乱搞</a></div><div class="post_share"><div class="social-share" data-image="/images/python-lambda.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/python-lambda-late-binding/"><img class="next-cover" data-src="/images/python-lambda.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Python Lambda 的坑 - Late Binding</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019-4-6/" title="最近一季度"><img class="relatedPosts_cover" data-src="/images/lobster.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-06-25</div><div class="relatedPosts_title">最近一季度</div></div></a></div><div class="relatedPosts_item"><a href="/hello-world/" title="开坑纪念"><img class="relatedPosts_cover" data-src="http://img.niecn.com/file/p/2019/06-18/85d3d8719777c70e749bef4b2a3760d9.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-20</div><div class="relatedPosts_title">开坑纪念</div></div></a></div><div class="relatedPosts_item"><a href="/custoj-deploy/" title="CustOJ开发指北"><img class="relatedPosts_cover" data-src="/images/ojdeploy.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-03-21</div><div class="relatedPosts_title">CustOJ开发指北</div></div></a></div><div class="relatedPosts_item"><a href="/Codeforces-April-Fools-Day-Contest-2019/" title="Codeforces - April Fools Day Contest 2019"><img class="relatedPosts_cover" data-src="https://espresso.codeforces.com/4f8f345d91a53e9454046256ad7b08ba40e8e08d.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-01</div><div class="relatedPosts_title">Codeforces - April Fools Day Contest 2019</div></div></a></div><div class="relatedPosts_item"><a href="/Resolve-a-Resolver/" title="ICPC Resolver 乱搞手册"><img class="relatedPosts_cover" data-src="/images/resolver.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-02</div><div class="relatedPosts_title">ICPC Resolver 乱搞手册</div></div></a></div></div></div></article></main><footer id="footer" style="background-image: url(https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By <i class="fa fa-dove"></i><span> ccw630</span></div><div class="framework-info"><span>Hosted by </span><a href="https://pages.github.com/" target="_blank" rel="noopener external nofollow noreferrer"><span>Github Pages</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button id="darkmode" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="Setting"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener external nofollow noreferrer" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><script>var isChatBtn = true
+
+if (isChatBtn) {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+    activationElement: '#chat_btn'
+  };
+} else {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+  };
+
+  if (false) {
+    var gitterBtn = document.getElementsByClassName('gitter-open-chat-button')
+
+    function chatBtnHide () {
+      gitterBtn[0].style.display= 'none'
+    }
+
+    function chatBtnShow () {
+      gitterBtn[0].style.display= 'block'
+    }
+  }
+}
+</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></body></html>
