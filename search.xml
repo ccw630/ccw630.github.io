@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Shortcuts 初探</title>
+      <link href="/Shortcuts/"/>
+      <url>/Shortcuts/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Shortcuts-快捷指令"><a href="#Shortcuts-快捷指令" class="headerlink" title="Shortcuts/快捷指令"></a>Shortcuts/快捷指令</h2><p>Shortcuts 的前身是 Workflow，一款自动化工具。2017 年被 Apple 收购后免费提供下载，iOS 12 发布后更名并支持被 Siri 调用。</p><p>以下内容摘自 Apple 官网:</p><blockquote><p>快捷指令可让您使用 App 快速完成任务，只需轻点一下或询问 Siri 即可。</p><p>快捷指令可以自动化各种任务，例如，获取前往“日历”上下一个日程的路线、将文本从一个 App 移到另一个 App、生成支出报告等。</p><p>基于您使用 iOS 或 iPadOS 设备的方式，如 App 使用以及浏览器、电子邮件和信息历史记录，Siri 可以建议简单实用的快捷指令，快速轻点即可运行。创建快捷指令后，您可以直接召唤 Siri，然后说出快捷指令的名称即可运行它。</p></blockquote><p>思路和 MacOS 上的「自动操作」（也就是 Apple Script）一样，为了支持自动化而生。然而操作上更加傻瓜化，可以算一种 no code 编程。内置了丰富的操作，单纯是控制 iPhone/iPad 本身是非常够用的了，比如开关闹钟什么的。另外也有需要想象力比较能拓展的，比如「打开 URL」（结合简单的 WebHook）、「通过 SSH 运行脚本」（结合服务器，可以干任何事情）。</p><h2 id="绿码"><a href="#绿码" class="headerlink" title="绿码"></a>绿码</h2><p>虽然当时 Workflow 可以免费下载后就安装了，但是一直没有找到使用的契机。最近出入各大商场，由于时常要出示绿码，于是想了这一招来解放手指(雾)。</p><p>iOS 14 引入了新的交互，支持敲击背面两下或三下拉起某些自定义操作。其中就包括调用 Shortcut。那么只要能用 Shortcut 拉起支付宝的绿码，就可以实现<strong>敲击背面两下快速打开绿码</strong>。这个功能在逛街的时候非常有用(大概)，不过首先你的 iPhone 不能套手机壳。</p><p>事实上，这种功能，由支付宝本身来提供当然是最好的。支付宝确实有。不过只能拉起健康码小程序，之后还需要选择地区才能转到绿码界面，不够方便。</p><p>不过话说回来，目前的形势来说，各地的健康码基本上是可以互通的。所以我们从简，直接以打开上海随申码为最终目的。这里唤起支付宝中的某个子功能，需要用到 URL scheme。这是个什么玩意，具体可以参考<a href="https://sspai.com/post/31500" target="_blank" rel="noopener external nofollow noreferrer">这篇文章</a>。有了这个，直接用「打开 URL」就可以跳转了。所以问题再次被简化成「获取上海随申码的 URL scheme」。</p><p>当然我不是专业的客户端选手，所以只能乱搞。首先是在支付宝里手动调出随申码，然后点分享把链接拷贝出来：<a href="https://m.alipay.com/XoNykfX" target="_blank" rel="noopener external nofollow noreferrer">https://m.alipay.com/XoNykfX</a></p><p>看起来是个短链接，所以继续丢浏览器。不过丢电脑浏览器似乎并没有用，所以继续在手机里操作。Safari 提示是否打开支付宝，这时选择否，之后地址栏的链接变成：<a href="https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2019072665939857%26page%3Dpages%252Fmy-station-type%252Fmy-station-type%26enbsv%3D0.2.2010110333.12%26chInfo%3Dch_share__chsub_CopyLink" target="_blank" rel="noopener external nofollow noreferrer">https://render.alipay.com/p/s/i/?scheme=alipays%3A%2F%2Fplatformapi%2Fstartapp%3FappId%3D2019072665939857%26page%3Dpages%252Fmy-station-type%252Fmy-station-type%26enbsv%3D0.2.2010110333.12%26chInfo%3Dch_share__chsub_CopyLink</a></p><p>虽然不知道是什么玩意，但看到了一个 scheme 参数。拷出来 URL Decode 一下，然后精简掉一些看起来没有用的参数，得到：alipays://platformapi/startapp?appId=2019072665939857&amp;page=pages%2Fmy-station-type%2Fmy-station-type</p><p>上面这个看起来就是需要的 URL Scheme 了。建了个 Shortcut 试验了一下，成功跳转到了绿码界面。虽然里面没有任何复杂逻辑，仅有一个「打开 URL」的操作，但还是分享出来，有需要的可以<a href="https://www.icloud.com/shortcuts/f15b22ca658b4117b990a2033f3127c1" target="_blank" rel="noopener external nofollow noreferrer">点击这里</a>自取。</p><p>最后在<code>Settings &gt; Accessibility &gt; Touch &gt; Back Tap &gt; Double Tap</code>设置好这个 Shortcut，就可以完成敲击背面两下快速打开绿码了~</p><h2 id="What’s-more"><a href="#What’s-more" class="headerlink" title="What’s more"></a>What’s more</h2><p>现在回忆起来，要是早点提供这个功能/早点发现这个功能，其实可以解决之前的一些痛点。</p><p>犹记得当年的算法课设，custoj 还用的是 OnlineJudge 1.0 版本，存在某个内存泄露的 bug。提交量一上来，就需要频繁重启 judge server，否则大家的提交集体 RE。然而那几天女票飞过来陪我，有的时候在外面玩不在电脑前，出了前述的问题时没法及时操作重启。</p><p>如果当时可以在手机上用 Shortcut(当年应该还叫 Workflow，不过不知道是不是真的给了这个功能，毕竟 Apple 收购后下放了更多的权限给 Shortcut)通过 SSH 运行脚本(当然是喜闻乐见的<code>docker-compose restart</code>啦)做重启，那许多同学应该会少遇到几次<code>Runtime Error</code>。</p><p>不过另一方面，客户端仍然是相对封闭的，不像网页，可以通过 CSS Selector 选择元素，并用<code>.click</code>之类的方法做一些自动化操作。如果 Shortcut 能直接操作 App 内部的元素，就更方便、更有用了。对于绿码的 case，我第一反应是先怼上一个「打开 App」的操作，把支付宝打开以后再在里面操作。关于这个反应，主要还是不熟悉 Native，习惯了 Web 平台，经常用 e2e test 框架搞一些事情，后来发现显然是行不通的，才转而研究 URL Scheme 的方案。</p><p>据说还有一个更强大的自动化工具 Pythonista，由于收费所以没有去体验，不过在 Shortcut 里看到了调起 Pythonista「编辑脚本」、「运行脚本」的操作，不确定是否能力更多，比如往里面怼一个 Selenium/Appium。</p><p>最后想说的事情就是，在 iPhone/iPad 上奇妙的东西还是不少的，需要更多的探索。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Monorepoization, and...</title>
       <link href="/monorepoization/"/>
       <url>/monorepoization/</url>
