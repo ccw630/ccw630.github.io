@@ -147,7 +147,7 @@ ga('send', 'pageview');
   pagerDirection: 'last',
   createIssueManually: false,
   updateCountCallback: commentCount,
-  proxy: '{{ theme.gitalk.proxy }}',
+  proxy: 'https://cors-anywhere.ccw.workers.dev/https://github.com/login/oauth/access_token',
 })
 gitalk.render('gitalk-container')
 
