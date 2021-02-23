@@ -114,7 +114,8 @@ ga('send', 'pageview');
   distractionFreeMode: false,
   pagerDirection: 'last',
   createIssueManually: false,
-  updateCountCallback: commentCount
+  updateCountCallback: commentCount,
+  proxy: '{{ theme.gitalk.proxy }}',
 })
 gitalk.render('gitalk-container')
 
