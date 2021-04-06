@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Codeforces - April Fools Day Contest 2021 | ccw630::Blog</title><meta name="description" content="一年只有两场 cf，一场 Goodbye，一场 April Fools Day Contest。今年应该是首次进入前 100，撒花！眼睛是个好东西，盲人专场欢迎你(雾)"><meta name="keywords" content="Codeforces,April Fools Day,乱搞"><meta name="author" content="ccw630"><meta name="copyright" content="ccw630"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://w630.cc/Codeforces-April-Fools-Day-Contest-2021/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin="crossorigin"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="L4_J7ls_6K7fiWWJDip4HZyaZfac1Rq4UG1J6299KCk"/><meta property="og:type" content="article"><meta property="og:title" content="Codeforces - April Fools Day Contest 2021"><meta property="og:url" content="https://w630.cc/Codeforces-April-Fools-Day-Contest-2021/"><meta property="og:site_name" content="ccw630::Blog"><meta property="og:description" content="一年只有两场 cf，一场 Goodbye，一场 April Fools Day Contest。今年应该是首次进入前 100，撒花！眼睛是个好东西，盲人专场欢迎你(雾)"><meta property="og:image" content="https://st.depositphotos.com/1031343/3150/v/600/depositphotos_31502263-stock-illustration-braille-alphabet.jpg"><meta property="article:published_time" content="2021-04-04T09:44:50.000Z"><meta property="article:modified_time" content="2021-04-06T15:16:58.515Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'true'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="next" title="并非 Python Decorator 的坑 - 成员方法" href="https://w630.cc/idiot-on-python/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-172403352-1', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">Loading...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/images/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">15</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Is-it-rated-2"><span class="toc-number">1.</span> <span class="toc-text">A. Is it rated - 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-DMCA"><span class="toc-number">2.</span> <span class="toc-text">B. DMCA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-Fibonacci-Words"><span class="toc-number">3.</span> <span class="toc-text">C. Fibonacci Words</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D-Xenolith-Hippodrome"><span class="toc-number">4.</span> <span class="toc-text">D. Xenolith? Hippodrome?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E-Cakewalk"><span class="toc-number">5.</span> <span class="toc-text">E. Cakewalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Math"><span class="toc-number">6.</span> <span class="toc-text">F. Math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-Encoded-message"><span class="toc-number">7.</span> <span class="toc-text">G. Encoded message</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H-L-BREAK-into-program"><span class="toc-number">8.</span> <span class="toc-text">H. L BREAK into program</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-Mysterious-language-again-seriously"><span class="toc-number">9.</span> <span class="toc-text">I. Mysterious language again, seriously?</span></a></li></ol></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://st.depositphotos.com/1031343/3150/v/600/depositphotos_31502263-stock-illustration-braille-alphabet.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">ccw630::Blog</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-user"></i><span> About</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Codeforces - April Fools Day Contest 2021</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="Created 2021-04-04 17:44:50"><i class="far fa-calendar-alt fa-fw"></i> Created 2021-04-04</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="Updated 2021-04-06 23:16:58"><i class="fas fa-history fa-fw"></i> Updated 2021-04-06</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/categories/acm/">acm</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>Post View:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="far fa-comments fa-fw post-meta__icon"></i><span>Comments:</span><a href="/Codeforces-April-Fools-Day-Contest-2021/#post-comment"><span class="gitalk-comment-count comment-count"></span></a></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>一年只有两场 cf，一场 Goodbye，一场 April Fools Day Contest。</p>
+<p>本场总结: Solved 6/9, Ranked 35/6652。题目质量还过得去，不过这次 kit1980 似乎又摸了，梗有点缺乏新意[1]，甚至有些向 ctf 靠拢[2]。另外由于逐渐社会，所以全场都用 Python 3 过的题。</p>
+<blockquote>
+<p>[1] April Fools Day 全系列最好的梗，现在想来非 kanban 莫属了</p>
+<p>[2] 所以我当初是不是应该去打 ctf 更好啊（但你做出这场的 ctf 题了吗）</p>
+</blockquote>
+<h2 id="A-Is-it-rated-2"><a href="#A-Is-it-rated-2" class="headerlink" title="A. Is it rated - 2"></a>A. Is it rated - 2</h2><p>Solved. 00:00 (+)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/A" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>No. 去年出过了，今年不会再上当了！比去年多了个多组输入而已。</p>
+<p>后面看了一下，我是第六个通过的提交。反应还不够快？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        input()</span><br><span class="line">        print(<span class="string">"NO"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="B-DMCA"><a href="#B-DMCA" class="headerlink" title="B. DMCA"></a>B. DMCA</h2><p>Solved. 00:48 (+4)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/B" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>本以为谜底会在题目上，没想到在题面里。</p>
+<blockquote>
+<p>In this problem you need to find a root of a number according to this new DMCA law.</p>
+</blockquote>
+<p>实际上跟什么 DMCA 没有啥关系，所谓的<em>root</em>不是指平方根而是指<em>数根</em>。由于样例过于具有迷惑性，所以交了几次无果以后先跳过去了。</p>
+<p>当时其实想到了数根这点，但最终忘了具体的定义，写了个求各位数之和没过，也没注意到比平方根多过了一个点。</p>
+<p>至于做法，众所周知，数根其实是有规律的，直接模9就行。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n=int(input())</span><br><span class="line">print((n<span class="number">-1</span>)%<span class="number">9</span>+<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-Fibonacci-Words"><a href="#C-Fibonacci-Words" class="headerlink" title="C. Fibonacci Words"></a>C. Fibonacci Words</h2><p>Solved. 00:21 (+)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/C" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>斐波那契嘛，就是 F(n)=F(n-1)+F(n-2) 咯。输入全是字母，所以先转成数字序，然后找找模26下的规律就是了。</p>
+<p>反正规律是看到了，但 +1 -1 模啥的并没有很明确，随便写了一下，样例过了，皆大欢喜！</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">s=input()</span><br><span class="line">f=<span class="keyword">lambda</span> x:ord(x)<span class="number">-64</span></span><br><span class="line">flag=<span class="literal">True</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(s)):</span><br><span class="line">    x = f(s[i<span class="number">-1</span>])+f(s[i<span class="number">-2</span>])</span><br><span class="line">    <span class="keyword">while</span> x&gt;<span class="number">26</span>:x-=<span class="number">26</span></span><br><span class="line">    <span class="keyword">if</span> x<span class="number">-1</span>!=f(s[i]):</span><br><span class="line">        flag=<span class="literal">False</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">print(<span class="string">'YES'</span><span class="keyword">if</span> flag <span class="keyword">else</span> <span class="string">'NO'</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-Xenolith-Hippodrome"><a href="#D-Xenolith-Hippodrome" class="headerlink" title="D. Xenolith? Hippodrome?"></a>D. Xenolith? Hippodrome?</h2><p>Unsolved.</p>
+<p><a href="https://codeforces.com/contest/1505/problem/D" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>? 死于词汇量(读题量)</p>
+<p>据说是答案在题面上，判断是否是<em>Xenodrome</em>。</p>
+<p>场上 Google 了 Xenolith, Hippodrome, Xenodrome, Hippolith，然而并没看出来哪个词是具有含义的。实际上查 Xenodrome 都是无关信息，更应该去 oeis 查询。</p>
+<h2 id="E-Cakewalk"><a href="#E-Cakewalk" class="headerlink" title="E. Cakewalk"></a>E. Cakewalk</h2><p>Solved. 01:04 (+)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/E" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>拍脑袋贪心，每次找最近的星号。远近使用曼哈顿距离来定义，如果距离相同在上排的优先（自然的遍历顺序）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">n,m=map(int,input().split())</span><br><span class="line">a=[input()<span class="keyword">for</span> i <span class="keyword">in</span> range(n)]</span><br><span class="line">l=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(m):</span><br><span class="line">        <span class="keyword">if</span> a[i][j]==<span class="string">'*'</span>:</span><br><span class="line">            l+=[(i,j)]</span><br><span class="line">now=(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">ans=int(now <span class="keyword">in</span> l)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    mn=<span class="number">99</span></span><br><span class="line">    mnt=now</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        <span class="keyword">if</span> i!=now <span class="keyword">and</span> i[<span class="number">0</span>]&gt;=now[<span class="number">0</span>] <span class="keyword">and</span> i[<span class="number">1</span>]&gt;=now[<span class="number">1</span>] <span class="keyword">and</span> mn&gt;sum(i)-sum(now):</span><br><span class="line">            mn=sum(i)-sum(now)</span><br><span class="line">            mnt=i</span><br><span class="line">    <span class="keyword">if</span> mn==<span class="number">99</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    now=mnt</span><br><span class="line">    ans+=<span class="number">1</span></span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
+
+<h2 id="F-Math"><a href="#F-Math" class="headerlink" title="F. Math"></a>F. Math</h2><p>Solved. 01:18 (+)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/F" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>比较明显的盲文，不过找翻译花了一些时间。根据题面，不同的盲文规范还不大一样。</p>
+<p>不过中间一模一样的两个图形(底下两个点，上下各两个点)代表的是<code>-x</code>。前后估计是2，所以猜是<code>2-x2</code>。<code>x2</code>中间的符号不大一样，根据样例猜可能是上标。然后过了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">n=int(input())</span><br><span class="line">print(<span class="number">2</span>-n**<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="G-Encoded-message"><a href="#G-Encoded-message" class="headerlink" title="G. Encoded message"></a>G. Encoded message</h2><p>Solved. 01:56 (+)</p>
+<p><a href="https://codeforces.com/contest/1505/problem/G" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>又是盲文！这场应该改名叫 Blind People Contest</p>
+<p>前期找了很多时间的规律，总感觉这个规律有点若即若离。实际上前面3个0<del>2和后面2个0</del>3，和还相等，其实就是对应 2×3 的盲文阵列。</p>
+<p>于是对着前一题找的图手打了一个表。样例还很贴心地把所有编码可能重复的字母放在里面，以防混淆(codeforcez 也太刻意了吧)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="string">'10010'</span>,<span class="string">'11020'</span>,<span class="string">'20011'</span>,<span class="string">'21012'</span>,<span class="string">'11011'</span>,<span class="string">'21021'</span>,<span class="string">'22022'</span>,<span class="string">'12021'</span>,<span class="string">'00000'</span>,<span class="string">'12012'</span>,<span class="string">'10120'</span>,<span class="string">'11130'</span>,<span class="string">'20121'</span>,<span class="string">'21122'</span>,<span class="string">'11121'</span>,<span class="string">'21131'</span>,<span class="string">'22132'</span>,<span class="string">'12131'</span>,<span class="string">'11111'</span>,<span class="string">'12122'</span>,<span class="string">'10221'</span>,<span class="string">'11231'</span>,<span class="string">'12113'</span>,<span class="string">'20222'</span>,<span class="string">'21223'</span>,<span class="string">'11222'</span>]</span><br><span class="line">n=int(input())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    s=input().replace(<span class="string">' '</span>,<span class="string">''</span>)</span><br><span class="line">    print(chr(<span class="number">97</span>+a.index(s)),end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="H-L-BREAK-into-program"><a href="#H-L-BREAK-into-program" class="headerlink" title="H. L BREAK into program"></a>H. L BREAK into program</h2><p>Unsolved.</p>
+<p><a href="https://codeforces.com/contest/1505/problem/H" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>没做。没工具，IDA* 还是什么十六进制阅读器，都没有，更不用说是题解提到的<em>ZX Spectrum emulator</em>了</p>
+<p>据说通过阅读器可以看出端倪，有一个长得像注释的东西提出有个加号写成减号了，另外有两个数组，对应相加取 ascii 码应该就是答案了。</p>
+<p>不过我用 vscode 试了下，没显示内容，就放弃了。</p>
+<p>只需要输出答案，这题很 ctf。如果提早准备对应的工具，应该是能做出来的。</p>
+<h2 id="I-Mysterious-language-again-seriously"><a href="#I-Mysterious-language-again-seriously" class="headerlink" title="I. Mysterious language again, seriously?"></a>I. Mysterious language again, seriously?</h2><p>Unsolved.</p>
+<p><a href="https://codeforces.com/contest/1505/problem/I" target="_blank" rel="noopener external nofollow noreferrer">传送门</a></p>
+<p>去年也有一个语言学习题，不过这种都挺花时间的。不过这次没有告诉是什么语言，而是让凭空猜。</p>
+<p>结果 seriously 居然是一个语言！场上我还以为要用 custom test 来 hack 出到底是什么语言。。摔，而且 custom test 老是卡住</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined" rel="external nofollow noreferrer">ccw630</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://w630.cc/Codeforces-April-Fools-Day-Contest-2021/">https://w630.cc/Codeforces-April-Fools-Day-Contest-2021/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener external nofollow noreferrer">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Codeforces/">Codeforces</a><a class="post-meta__tags" href="/tags/April-Fools-Day/">April Fools Day</a><a class="post-meta__tags" href="/tags/%E4%B9%B1%E6%90%9E/">乱搞</a></div><div class="post_share"><div class="social-share" data-image="https://miro.medium.com/max/3040/1*z9eqpNvy3t4hjLL5Tjah2A.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/idiot-on-python/"><img class="next-cover" data-src="https://miro.medium.com/max/3040/1*z9eqpNvy3t4hjLL5Tjah2A.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">并非 Python Decorator 的坑 - 成员方法</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/Codeforces-April-Fools-Day-Contest-2019/" title="Codeforces - April Fools Day Contest 2019"><img class="relatedPosts_cover" data-src="https://espresso.codeforces.com/4f8f345d91a53e9454046256ad7b08ba40e8e08d.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-04-01</div><div class="relatedPosts_title">Codeforces - April Fools Day Contest 2019</div></div></a></div><div class="relatedPosts_item"><a href="/Codeforces-April-Fools-Day-Contest-2020/" title="Codeforces - April Fools Day Contest 2020"><img class="relatedPosts_cover" data-src="https://espresso.codeforces.com/f5d68ed69f4ec8fcc71db0c55cf6acb9860b5e4a.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-01</div><div class="relatedPosts_title">Codeforces - April Fools Day Contest 2020</div></div></a></div><div class="relatedPosts_item"><a href="/Resolve-a-Resolver/" title="ICPC Resolver 乱搞手册"><img class="relatedPosts_cover" data-src="/images/resolver.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-02</div><div class="relatedPosts_title">ICPC Resolver 乱搞手册</div></div></a></div><div class="relatedPosts_item"><a href="/recover-log/" title="灾后重建"><img class="relatedPosts_cover" data-src="https://ywjheart.files.wordpress.com/2017/10/macos-10-12-2017-10-22-18-47-24.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-13</div><div class="relatedPosts_title">灾后重建</div></div></a></div></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'de686c7fab33312f2542',
+  clientSecret: '6c914dda306249a4f65b56f3cbd5dc4e170a960f',
+  repo: 'ccw630.github.io',
+  owner: 'ccw630',
+  admin: ['ccw630'],
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN',
+  perPage: 10,
+  distractionFreeMode: false,
+  pagerDirection: 'last',
+  createIssueManually: false,
+  updateCountCallback: commentCount,
+  proxy: 'https://cors-anywhere-ccw.herokuapp.com/https://github.com/login/oauth/access_token',
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  try {
+    document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+  } catch (e) {
+    return false
+  }
+}</script></div></article></main><footer id="footer" style="background-image: url(https://st.depositphotos.com/1031343/3150/v/600/depositphotos_31502263-stock-illustration-braille-alphabet.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By ccw630</div><div class="framework-info"><span>Hosted by </span><a href="https://pages.github.com/" target="_blank" rel="noopener external nofollow noreferrer"><span>Github Pages</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="readmode" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="font_plus" title="Increase Font Size"><i class="fas fa-plus"></i></button><button id="font_minus" title="Decrease Font Size"><i class="fas fa-minus"></i></button><button id="darkmode" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="scroll_to_comment fas fa-comments"></i></a><button class="close" id="mobile-toc-button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="chat_btn" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener external nofollow noreferrer" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/search/local-search.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script><script>var isChatBtn = true
+
+if (isChatBtn) {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+    activationElement: '#chat_btn'
+  };
+} else {
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'ccw630/blog',
+  };
+
+  if (false) {
+    var gitterBtn = document.getElementsByClassName('gitter-open-chat-button')
+
+    function chatBtnHide () {
+      gitterBtn[0].style.display= 'none'
+    }
+
+    function chatBtnShow () {
+      gitterBtn[0].style.display= 'block'
+    }
+  }
+}
+</script><script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async="async" defer="defer"></script></body></html>
